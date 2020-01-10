@@ -140,26 +140,7 @@
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
-       <widget class="QGraphicsView" name="graphicsView">
-        <property name="sizePolicy">
-         <sizepolicy hsizetype="MinimumExpanding" vsizetype="Maximum">
-          <horstretch>0</horstretch>
-          <verstretch>0</verstretch>
-         </sizepolicy>
-        </property>
-        <property name="minimumSize">
-         <size>
-          <width>900</width>
-          <height>600</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>4000</width>
-          <height>1000</height>
-         </size>
-        </property>
-       </widget>
+       <widget class="QWebEngineView" name="browser" native="true"/>
       </item>
       <item>
        <widget class="QScrollArea" name="scrollArea">
@@ -199,6 +180,14 @@
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>QWebEngineView</class>
+   <extends>QWidget</extends>
+   <header location="global">QWebEngineView</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -6,10 +6,11 @@
 #include <QMessageBox>
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent),
-    ui(new Ui::MainWindow)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    m_view = ui->browser;
 
     m_transport = new Transport("localhost", 12345, true, this);
 
@@ -34,11 +35,6 @@ void MainWindow::initializeRecommended(QVector<QString> &urls)
         QMessageBox::information (this, "Song query", "We don't have song to show you but feel free to keep searching!");
     }
 
-//    ui->graphicsView->setSizePolicy (QSizePolicy::Expanding, QSizePolicy::Preferred);
-
-    m_view = new QWebEngineView(ui->graphicsView);
-    m_view->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    m_view->resize(ui->graphicsView->size ());
     if (urls.length() > 0) {
         m_view->setHtml(getHtml(urls[0].split("::")[0]));
         m_view->show();
